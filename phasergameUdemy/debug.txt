@@ -35,3 +35,9 @@
 
  ..May have to upload this version of my code into github and come back to it if I have to. May have to go with creating enemySights as its own object. enemysights = zombie.addChild(), and debug it from there.
 
+
+
+2/17:
+ ..Changing the enemy sights on the left and right of the sprite, so that the enemy cannot see behind himself. Changed the anchor.setTo to (0,0) and moved the x -= 5.
+
+

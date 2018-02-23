@@ -87,10 +87,24 @@ myDemo.state1.prototype = {
             if(enemyGroup.children[i].alive){
                 enemyGroup.children[i].update();
                 //if(enemyGroup.children[i].children[0])
-                game.physics.arcade.overlap(player, enemyGroup.children[i].children[0], enemySeePlayer, null, this);
-                game.physics.arcade.collide(player, enemyGroup.children[i].children[0], enemySeePlayer, null, this);
+                //game.physics.arcade.overlap(player, enemyGroup.children[i].children[0], enemySeePlayer, null, this);
+                //game.physics.arcade.collide(player, enemyGroup.children[i].children[0], enemySeePlayer, null, this);
+                if(game.physics.arcade.collide(player, enemyGroup.children[i].enemySights, enemySeePlayer, null, this)){
+                    //alert("hello");
+                    //console.log(enemyGroup.children[i].sig);
+                    enemyGroup.children[i].isLocatedPlayer = true;
+                    //console.log("hello");
+                    
+                }else{
+                    //enemyGroup.children[i].isLocatedPlayer = false;
+                }
                 //enemy.u.children[i]pdate();
                 //updateEnemy(enemyGroup.children[i]);
+            }
+            if(enemyGroup.children[i].newSights == true){
+                if(game.physics.arcade.collide(player, enemyGroup.children[i].enemySights, enemySeePlayer, null, this)){
+                    //alert("hello");
+                }
             }
         }
         
@@ -700,7 +714,10 @@ function enemyBump(enemyA, enemyB){
     //enemyB.changeDirection();
 }
 
-function enemySeePlayer(plyr, enmy){
+function enemySeePlayer(p, e){
     //alert("hello external");
-    console.log("hello" + game.time.now);
+    //console.log("hello" + game.time.now);
+    //console.log(enmy.sig);
+    //alert("hello");
+    e.kill();
 }
