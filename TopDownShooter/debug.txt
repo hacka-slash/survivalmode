@@ -1,0 +1,58 @@
+************************************************
+
+11/26:
+ ..*Well, got back to the project. Last I left off, the animation sprite sheet I created does not work properly at all. I am going to return to the older method which i commented out since that one at least worked. Still overall trying to figure out how to load multiple sprite sheets, or have one very large one with the proper code and coordinates to function properly.
+
+ ..I had attempted to create a entire functioning spritesheet for all playerKnife animations which include walking, idle, and melee. The plan was when the user switches weapons, they switch and load the entire spritesheet necessary for that weapon's animations. But the spritesheet I composed was off. Maybe a different program will be better. I've made smaller spritesheets working fine with the online maker. Perhaps I can figure out a way to make a very large spritesheet file with the online one.
+
+ ..*Correction, it was TexturePacker program that makes the really good spritesheets. 7 day free trial however.
+
+
+
+ ..*We are going to save the currentX, currentY, and when the player changes weapons, we will remove the player from the game and reload him to the currentX, Y, positions with the new proper sprite sheet loaded.
+
+
+ 11/27:
+ ..Actually, instead of sprite.destoy() and reload, we will call sprite.changeTexture to load a new sprite sheet with animations.
+
+11/28:
+ ..Had much trouble with having the sprite face angles -135 and -45. Fixed this with adding another if(.isDown) at the bottom of its "else"
+ ..Now I am looking to include holding down shift to make the sprite move in a fixed direction back forth up and down.
+
+ 11/29:
+ ..Now looking to add a fire gun mehtod
+
+
+ 1/4:
+ ..Enemy sights still giving me problems. Trying to increase the length and width of the sights. When I tried to adjust those properies via zombie.children[0] no effect was seen when the program runs. The sights was still small. But when I created a variable for it, sights = zombie.addChild(), this method worked in adjusting the sight's properties, but for some reason, now the zombie's animation does not work and its gravity seems to slowly drop it off the screen. Must investigate and trace why this happens.
+
+
+
+ 1/28:
+ ..Still trying to fix the enemy sights problem. I have taken it out of the state1.js and will be inserting the enemy sights code into the Zombie.js, so that when state1.js spawns Zombies, the sights and code will be already apart of it.
+	..While doing this, I am editing the createEnemy(). 	The if(!zombie) works fine with the enemy sights 	commented out, but the if(zombie) breaks the whole 	game when the enemy sights code is commented out. 	Seems this var zombie = enemyGroup.getFirstExists	(false) needs some more understanding by me because 	I swear it is not neccessary.
+
+
+ ..May have to upload this version of my code into github and come back to it if I have to. May have to go with creating enemySights as its own object. enemysights = zombie.addChild(), and debug it from there.
+
+
+
+2/17:
+ ..Changing the enemy sights on the left and right of the sprite, so that the enemy cannot see behind himself. Changed the anchor.setTo to (0,0) and moved the x -= 5.
+
+
+2/24:
+ ..Looks like in order for the enemy sight to work properly with the collisions and the physics, I will have to learn how to apply the p2 physics engine. I'll make state 3 and so on will be for p2 physics expiriments.
+
+
+4117 7140 0893 8415
+04/21
+067
+
+citizensbankonline.com
+
+15th of every month
+
+642416518
+
+
